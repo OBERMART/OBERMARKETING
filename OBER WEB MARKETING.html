@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Website Marketing Mobil AI oleh Ober Tumanggor">
+  <meta name="keywords" content="Mitsubishi, Mobil, Marketing, Ober Tumanggor, Promo">
+  <title>MARKETING OBERMITSUBISHI SUMUT - Ober Tumanggor</title>
+  <link rel="stylesheet" href="v2.css">
+</head>
+<body>
+  <div id="datetime"><span id="date"></span> <span id="time"></span></div>
+  <header>
+    <div class="header-content"><h1></h1></div>
+    <nav>
+      <ul>
+        <li><a href="#video-slider">DAPATKAN HADIAH</a></li>
+        <li><a href="#kuis">DOKUMEN SERAH TERIMA</a></li>
+        <li class="dropdown">
+          <a href="javascript:void(0)">TANYA MARKETING</a>
+          <div class="dropdown-content">
+            <form id="contactForm" onsubmit="submitContactForm(event)">
+              <label>Nama:</label><input type="text" id="nama" required>
+              <label>Produk:</label>
+              <select id="produk" required>
+                <option value="">Pilih Produk</option>
+                <option value="MITSUBISHI DESTINATOR">MITSUBISHI DESTINATOR</option>
+                <option value="NEW PAJERO SPORT">NEW PAJERO SPORT</option>
+                <option value="NEW MITSUBISHI XFORCE">NEW MITSUBISHI XFORCE</option>
+                <option value="NEW XPANDER">NEW XPANDER</option>
+                <option value="NEW ALL TRITON 2025">NEW ALL TRITON 2025</option>
+                <option value="NEW L300">NEW L300</option>
+                <option value="NEW XPANDER CROSS">NEW XPANDER CROSS</option>
+                <option value="NEW CANTER">NEW CANTER</option>
+                <option value="NEW FUSO">NEW FUSO</option>
+              </select>
+              <label>Pembayaran:</label>
+              <select id="pembayaran" required>
+                <option value="">Pilih Metode</option>
+                <option value="Kredit">Kredit</option>
+                <option value="Cash">Cash</option>
+              </select>
+              <label>Lokasi:</label><input type="text" id="lokasi" required>
+              <input type="submit" value="Kirim">
+            </form>
+          </div>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="container">
+    <div class="marquee-container">
+      <div class="marquee">
+        PROMO SPESIAL! DAPATKAN PENAWARAN TERBAIK BUNGA 0% | DP RINGAN | DAPAT HADIAH UNTUK SUMATERA & ACEH HARI INI! HUBUNGI OBER TUMANGGOR S,KOM SEKARANG!
+      </div>
+    </div>
+    <!-- Promo Section dengan Foto Full -->
+    <section id="promo" class="promo-section">
+      <div class="promo-slider">
+        <button class="promo-prev" onclick="promoPrev()" aria-label="Promo Sebelumnya">&#10094;</button>
+        <div class="promo-container">
+          <img src="1.jpeg" alt="Promo NEW DESTINATOR" onclick="hubungiPromo()">
+          <img src="2 (2).jpeg" alt="Promo NEW PAJERO SPORT" onclick="hubungiPromo()">
+          <img src="3 (2).jpeg" alt="Promo NEW MITSUBISHI XFORCE" onclick="hubungiPromo()">
+          <img src="4 (2).jpeg" alt="Promo NEW XPANDER" onclick="hubungiPromo()">
+          <img src="5 (2).jpeg" alt="Promo NEW XPANDER CROSS" onclick="hubungiPromo()">
+          <img src="6 (2).jpeg" alt="Promo NEW L300" onclick="hubungiPromo()">
+          <img src="7 (2).jpeg" alt="Promo NEW TRITON" onclick="hubungiPromo()">
+          <img src="8.jpeg" alt="Promo NEW CANTER" onclick="hubungiPromo()">
+        </div>
+        <button class="promo-next" onclick="promoNext()" aria-label="Promo Selanjutnya">&#10095;</button>
+      </div>
+    </section>
+    
+    <!-- Produk Section -->
+    <section id="produk" class="products-section">
+      <h2>PRODUK</h2>
+      <div class="products">
+        <!-- Produk 1 -->
+        <div class="product-card">
+          <img src="pajerosport.jpg" alt="NEW PAJERO SPORT" width="300" height="200">
+          <div class="product-info">
+            <h3>NEW PAJERO SPORT</h3>
+            <p>Harga: Rp617.000.000-793.000.000</p>
+            <p>Kursi: 7</p>
+            <p>Transmisi : Manual/Cvt</p>
+            <a href="javascript:void(0)" onclick="hubungiSelanjutnya('NEW PAJERO SPORT','Rp617.000.000-793.000.000','4')" class="btn-contact">Hubungi Selanjutnya</a>
+          </div>
+        </div>
+        <!-- Produk 2 -->
+        <div class="product-card">
+          <img src="xforce.jpg" alt="NEW MITSUBISHI XFORCE" width="300" height="200">
+          <div class="product-info">
+            <h3>NEW MITSUBISHI XFORCE</h3>
+            <p>Harga: Rp396.900.000-438.700.000</p>
+            <p>Kursi: 5</p>
+            <p>Transmisi : Cvt Only</p>
+            <a href="javascript:void(0)" onclick="hubungiSelanjutnya('NEW MITSUBISHI XFORCE','Rp396.900.000-438.700.000','5')" class="btn-contact">Hubungi Selanjutnya</a>
+          </div>
+        </div>
+        <!-- Produk 3 -->
+        <div class="product-card">
+          <img src="xpander.webp" alt="NEW XPANDER" width="300" height="200">
+          <div class="product-info">
+            <h3>NEW XPANDER</h3>
+            <p>Harga: Rp286.500.000-347.800.000</p>
+            <p>Kursi: 7</p>
+            <p>Transmisi : Manual/Cvt</p>
+            <a href="javascript:void(0)" onclick="hubungiSelanjutnya('NEW XPANDER','Rp286.500.000-347.800.000','4')" class="btn-contact">Hubungi Selanjutnya</a>
+          </div>
+        </div>
+        <!-- Produk 4 -->
+        <div class="product-card">
+          <img src="xpander.jpg" alt="NEW XPANDER CROSS" width="300" height="200">
+          <div class="product-info">
+            <h3>NEW XPANDER CROSS</h3>
+            <p>Harga: Rp350.900.000-380.800.000</p>
+            <p>Kursi: 7</p>
+            <p>Transmisi : Manual/Cvt</p>
+            <a href="javascript:void(0)" onclick="hubungiSelanjutnya('NEW XPANDER CROSS','Rp350.900.000-380.800.000','4')" class="btn-contact">Hubungi Selanjutnya</a>
+          </div>
+        </div>
+        <!-- Produk 5 -->
+        <div class="product-card">
+          <img src="triton.webp" alt="NEW ALL TRITON 2025" width="300" height="200">
+          <div class="product-info">
+            <h3>NEW ALL TRITON 2025</h3>
+            <p>Harga: Rp324.000.000-628.000.000</p>
+            <p>Kursi: 3-5</p>
+            <p>Transmisi : Manual/Cvt</p>
+            <a href="javascript:void(0)" onclick="hubungiSelanjutnya('NEW ALL TRITON 2025','Rp324.000.000-628.000.000','7')" class="btn-contact">Hubungi Selanjutnya</a>
+          </div>
+        </div>
+        <!-- Produk 6 -->
+        <div class="product-card">
+          <img src="l300.webp" alt="NEW L300" width="300" height="200">
+          <div class="product-info">
+            <h3>NEW L300</h3>
+            <p>Harga: Rp261.500.000-267.000.000</p>
+            <p>Kursi: 3</p>
+            <p>Transmisi : Manual Only</p>
+            <p>Karoseri: Pick Up, BOX, BOX Pendingin</p>
+            <a href="javascript:void(0)" onclick="hubungiSelanjutnya('NEW L300','Rp261.500.000-267.000.000','5')" class="btn-contact">Hubungi Selanjutnya</a>
+          </div>
+        </div>
+        <!-- Produk 7 -->
+        <div class="product-card">
+          <img src="canter.webp" alt="NEW CANTER" width="300" height="200">
+          <div class="product-info">
+            <h3>NEW CANTER</h3>
+            <p>Harga: Rp441.000.000-516.500.000</p>
+            <p>Kursi: 3</p>
+            <p>Transmisi : Manual Only</p>
+            <p>Karoseri: Bak Kayu/Besi,Towing,Tangki,DumpTruck, Dll</p>
+            <a href="javascript:void(0)" onclick="hubungiSelanjutnya('NEW CANTER','Rp441.000.000-516.500.000','2')" class="btn-contact">Hubungi Selanjutnya</a>
+          </div>
+        </div>
+        <!-- Produk 8 -->
+        <div class="product-card">
+          <img src="fuso.png" alt="NEW FUSO" width="300" height="200">
+          <div class="product-info">
+            <h3>NEW FUSO</h3>
+            <p>Harga: Rp995.000.000-1,4 miliar</p>
+            <p>Kursi: 3</p>
+            <p>Transmisi : Manual</p>
+            <p>Karoseri: Bak Kayu/Besi,Logging,Tangki,DumpTruck,Dll</p>
+            <a href="javascript:void(0)" onclick="hubungiSelanjutnya('NEW FUSO','Rp995.000.000-1,4 miliar','2')" class="btn-contact">Hubungi Selanjutnya</a>
+          </div>
+        </div>
+      
+<!-- Produk 9 -->
+<div class="product-card">
+  <img src="destinator.PNG" alt="NEW DESTINATOR" width="300" height="200">
+  <div class="product-info">
+    <h3>NEW DESTINATOR</h3>
+    <p>Harga: Rp396.000.000-475.100.000</p>
+    <p>Kursi: 7</p>
+    <p>Transmisi : CVT Only</p>
+    <a href="javascript:void(0)" onclick="hubungiSelanjutnya('NEW DESTINATOR','Rp480.000.000-520.000.000','7')" class="btn-contact">Hubungi Selanjutnya</a>
+  </div>
+</div>
+
+</div>
+    </section>
+    
+    <!-- Video Slider Section -->
+    <section id="video-slider" class="video-slider-section">
+      <button class="video-prev" onclick="videoPrev()" aria-label="Video Sebelumnya">&#10094;</button>
+      <div class="video-slider-container">
+        <div class="video-card">
+          <video controls poster="video1_poster.jpg">
+            <source src="video_1.mp4" type="video/mp4">
+            <track kind="subtitles" srclang="id" label="Bahasa Indonesia" src="video1_subtitles.vtt" default>
+            Browser Anda tidak mendukung elemen video.
+          </video>
+          <div class="video-card-info">
+            <h2>NEW XFORCE ULTIMATE DS</h2>
+            <p>DNEW XORCE DS hadir atas kemajuan dan dorongan pentingnya fitur keselamatan dan fitur-fitur canggih</p>
+          </div>
+        </div>
+        <div class="video-card">
+          <video controls poster="video2_poster.jpg">
+            <source src="video-2.mp4" type="video/mp4">
+            <track kind="subtitles" srclang="id" label="Bahasa Indonesia" src="video2_subtitles.vtt" default>
+            Browser Anda tidak mendukung elemen video.
+          </video>
+          <div class="video-card-info">
+            <h2>PROMO TERBARU</h2>
+            <p>Untuk mengetahui promo lebih lengkap, silahkan hubungi marketing melalui tanya marketing.</p>
+          </div>
+        </div>
+        <div class="video-card">
+          <video controls poster="video3_poster.jpg">
+            <source src="video_3.mp4" type="video/mp4">
+            <track kind="subtitles" srclang="id" label="Bahasa Indonesia" src="video3_subtitles.vtt" default>
+            Browser Anda tidak mendukung elemen video.
+          </video>
+          <div class="video-card-info">
+            <h2>JPROMO MINGGU INI</h2>
+            <p>Untuk mengetahui promo lebih lengkap, silahkan hubungi marketing melalui tanya marketing.</p>
+          </div>
+        </div>
+      </div>
+      <button class="video-next" onclick="videoNext()" aria-label="Video Selanjutnya">&#10095;</button>
+    </section>
+
+    <section id="kuis" class="quiz-section">
+      <h2>Kuis: Menangkan Voucher 500.000 untuk beli Mobil!</h2>
+      <div id="quizStart">
+        <p>Sebelum menjawab kuis, masukkan dulu nama dan WhatsApp Anda:</p>
+        <form id="quizStartForm">
+          <label>Nama Anda:<input type="text" id="quizName" required></label><br>
+          <label>WhatsApp..:<input type="text" id="quizWA" required></label><br>
+          <button type="button" onclick="startQuiz()">Mulai Kuis</button>
+        </form>
+      </div>
+      <div id="quizContent" style="display:none;">
+        <p>Jawab minimal 4 pertanyaan dengan benar untuk mendapatkan voucher beli mobil senilai Rp500.000.</p>
+        <form id="quizForm">
+          <div class="quiz-question"><p>1. Siapa nama marketingnya?</p>
+            <label><input type="radio" name="q1" value="Taylor Swift"> Taylor Swift</label>
+            <label><input type="radio" name="q1" value="Ober Tumanggor, S.Kom"> Ober Tumanggor, S.Kom</label>
+            <label><input type="radio" name="q1" value="Jun Munte"> Jun Munte</label>
+          </div>
+          <div class="quiz-question"><p>2. Apa alasan kamu mau beli Mobil dari Ober Tumanggor?</p>
+            <label><input type="radio" name="q2" value="Sipaling ngejar target"> Sipaling ngejar target</label>
+            <label><input type="radio" name="q2" value="Pelayanan terbaik, jujur, dan transparan"> Pelayanan terbaik, jujur, dan transparan</label>
+            <label><input type="radio" name="q2" value="Semua Benar"> Semua Benar</label>
+          </div>
+          <div class="quiz-question"><p>3. Apa produk yang dijual di sini?</p>
+            <label><input type="radio" name="q3" value="Ulos"> Ulos</label>
+            <label><input type="radio" name="q3" value="Mobil"> Mobil</label>
+            <label><input type="radio" name="q3" value="Ombus-ombus"> Ombus-ombus</label>
+          </div>
+          <div class="quiz-question"><p>4. Apa arti dari 'kredit' dalam pembelian mobil?</p>
+            <label><input type="radio" name="q4" value="Pembayaran secara cicilan"> Pembayaran secara cicilan</label>
+            <label><input type="radio" name="q4" value="Pembayaran penuh"> Pembayaran penuh</label>
+            <label><input type="radio" name="q4" value="GRIS"> GRIS</label>
+          </div>
+          <div class="quiz-question"><p>5. Mobil keluarga dari mitsubishi yang bisa stututu....tut model apa?</p>
+            <label><input type="radio" name="q5" value="New Pajero Sport"> New Pajero Sport</label>
+            <label><input type="radio" name="q5" value="XFORCE"> XFORCE</label>
+            <label><input type="radio" name="q5" value="FIGHTER"> FIGHTER</label>
+          </div>
+          <button type="button" class="btn-submit-quiz" onclick="submitQuiz()">Submit Kuis</button>
+        </form>
+        <div id="quizResult" class="quiz-result"></div>
+      </div>
+    </section>
+<!-- === Serah Terima Unit 3D Gallery === -->
+  <section id="serahterima" class="serahterima-section">
+    <h2>SERAH TERIMA </h2>
+    <div class="serahterima-slider">
+      <button class="serahterima-prev" onclick="prevSerahTerima()">&#10094;</button>
+      <div class="serahterima-container">
+        <div class="serahterima-item"><img src="l300 bg tinambunan manduamas.jpg" alt="Serah Terima 1"><div class="serahterima-caption">NEW L300 ABANG TINAMBUNAN<P> MANDUAMAS<P></P></div></div>
+        <div class="serahterima-item"><img src="l300 lae tampu.jpg" alt="Serah Terima 2"><div class="serahterima-caption">NEW L300 PAK TAMPUBOLON<P> BATANG TORU<P></P> </div></div>
+        <div class="serahterima-item"><img src="l300 bg tumanggor.jpg" alt="Serah Terima 3"><div class="serahterima-caption">NEW L300 ABANG TUMANGGOR<P> MANDUAMAS<P></div></div>
+        <div class="serahterima-item"><img src="l300 namboru tumanggor.jpg" alt="Serah Terima 4"><div class="serahterima-caption">NEW L300 NAMBORU<P> MANDUAMAS<P></P></div></div>
+        <div class="serahterima-item"><img src="l300 bg tumanggor pakpakbharat.jpg" alt="Serah Terima 5"><div class="serahterima-caption">NEW L300 ABANG TUMANGGOR<P> SALAK PAKPAK BHARAT<P></P> </div></div>
+        <div class="serahterima-item"><img src="l300 uda tumanggor.jpeg" alt="Serah Terima 6"><div class="serahterima-caption">NEW L300 PAK UDA TUMANGGOR<P> DOLOK SANGGUL<P></div></div>
+        <div class="serahterima-item"><img src="xpander elt ibu citra.jpg" alt="Serah Terima 7"><div class="serahterima-caption">NEW XPANDER ULTIMATE LIMITED EDITION<P> MEDAN MARELAN<P></P></div></div>
+        <div class="serahterima-item"><img src="l300 lae lubis.jpg" alt="Serah Terima 8"><div class="serahterima-caption">NEW L300 LAE LUBIS<P>  MANDUAMAS<P></P> </div></div>
+        <div class="serahterima-item"><img src="xpander ul ito manullang.jpg" alt="Serah Terima 9"><div class="serahterima-caption">NEW XPANDER ITO MANULLANG<P> SIDIKALANG<P></div></div>
+        <div class="serahterima-item"><img src="l300 ito bako.jpg" alt="Serah Terima 10"><div class="serahterima-caption">NEW L300 ITO BAKO<P> MANDUAMAS<P></P></div></div>
+        <div class="serahterima-item"><img src="l300 silih brutu.jpeg" alt="Serah Terima 11"><div class="serahterima-caption">NEW L300 LAE BARUTU<P> MANDUAMAS <P></P> </div></div>
+        <div class="serahterima-item"><img src="l300 bg ginting.jpg" alt="Serah Terima 12"><div class="serahterima-caption">NEW L300 ABANG GINTING<P> PANCUR BATU<P></div></div>
+        <div class="serahterima-item"><img src="l300 lae manalu.jpg" alt="Serah Terima 13"><div class="serahterima-caption">NEW L300 LAE MANALU<P> MANDUAMAS<P></P></div></div>
+        <div class="serahterima-item"><img src="l300 tulang pakpahan.jpg" alt="Serah Terima 14"><div class="serahterima-caption">NEW L300 PAK PAKPAHAN<P> PEMATANG SIANTAR<P></P> </div></div>
+        <div class="serahterima-item"><img src="l300 lae hasibuan.jpeg" alt="Serah Terima 15"><div class="serahterima-caption">NEW L300 LAE HASIBUAN<P> MANDUAMAS<P></div></div>
+        <div class="serahterima-item"><img src="l300 ito sihombing.jpeg" alt="Serah Terima 16"><div class="serahterima-caption">NEW L300 IBUK GURU SIHOMBING<P> MEDAN AREA<P></P></div></div>
+        <div class="serahterima-item"><img src="new pajero sport puhun manik.jpeg" alt="Serah Terima 17"><div class="serahterima-caption">NEW PAJERO SPORT DAKAR TULANG MANIK<P> MANDUAMAS<P></P> </div></div>
+        <div class="serahterima-item"><img src="xp cr namoru nahampun.jpg" alt="Serah Terima 18"><div class="serahterima-caption">NEW XPANDER CROSS<P> MANDUAMAS<P></div></div>
+        <div class="serahterima-item"><img src="xpandercr ito purnama.jpg" alt="Serah Terima 19"><div class="serahterima-caption">NEW XPANDER CROSS IBUK GURU MUNGKUR<P> SIRANDORUNG<P></P></div></div>
+        <div class="serahterima-item"><img src="l300 lae purba.jpeg" alt="Serah Terima 20"><div class="serahterima-caption">NEW L300 LAE PURBA<P>  MANDUAMAS<P></P> </div></div>
+        <div class="serahterima-item"><img src="l300 lae siringoringo.jpeg" alt="Serah Terima 21"><div class="serahterima-caption">NEW L300 LAE SIRINGORINGO<P> MANDUAMAS<P></div></div>
+        <div class="serahterima-item"><img src="l300 lae simatupang.jpeg" alt="Serah Terima 22"><div class="serahterima-caption">NEW L300 SIMATUPANGP> MANDUAMAS<P></P></div></div>
+        <div class="serahterima-item"><img src="2 unit l300, bg ginting & ito bako.jpg" alt="Serah Terima 23"><div class="serahterima-caption">NEW L300 ABANG GINTING<P> MEDAN <P></P> </div></div>
+        <div class="serahterima-item"><img src="new canter puhun manik.jpeg" alt="Serah Terima 24"><div class="serahterima-caption">NEW CANTER DUMPHTRUK<P>MANDUAMAS<P></div></div>
+        <div class="serahterima-item"><img src="new xpander ibu chattrin.jpeg" alt="Serah Terima 25"><div class="serahterima-caption">NEW XPANDER ULTIMATE<P> BINJAI<P></div></div>
+        <div class="serahterima-item"><img src="new pajero sport  pak dewan tapteng.jpeg" alt="Serah Terima 26"><div class="serahterima-caption">NEW PAJERO SPORT DAKAR PAK DEWAN ST<P> MANDUAMAS<P></P></div></div>
+        <div class="serahterima-item"><img src="new destinator pak hutapea.jpeg" alt="Serah Terima 27"><div class="serahterima-caption">NEW DESTINATOR PAK HUTAPEA<P> MEDAN SELAYANG<P></P> </div></div>
+        <div class="serahterima-item"><img src="l300 lae ringo.jpeg" alt="Serah Terima 28"><div class="serahterima-caption">NEW L300 LAE RINGO<P> MANDUAMAS<P></P></div></div>
+        <div class="serahterima-item"><img src="canter lae sibarani.jpeg" alt="Serah Terima 29"><div class="serahterima-caption">NEW CANTER DUMPHTRUK LAE SIBARANI<P>  MANDUAMAS<P></P> </div></div>
+        <div class="serahterima-item"><img src="l300 pak sahrial.jpeg" alt="Serah Terima 30"><div class="serahterima-caption">NEW L300 PAK SAHRIAL<P> LANGKAT<P></div></div>
+      
+      </div>
+      <button class="serahterima-next" onclick="nextSerahTerima()">&#10095;</button>
+    </div>
+  </section>
+
+    <section id="marketing-executive" class="marketing-executive-section">
+      <h2>Marketing Executive</h2>
+      <div class="marketing-executive-card">
+        <div class="executive-business-card"><img src="KRTU.jpg"></div>
+        <div class="executive-photo"><img src="file.jpg"></div>
+        <div class="executive-info">
+          <h3>Ober Tumanggor, S.Kom</h3>
+          <p>TUBUAN EME MANINNA DI TANO</p><p>TUNG TUDIA PE HAMU TINGGAL</p><p>SIAN AU MA TONG-TONG MANUHOR MOBIL</p>
+          <div class="executive-social">
+            <a href="https://wa.me/6282393310575" target="_blank" rel="noopener">
+              <img src="wa.png" alt="WhatsApp">
+              <span>082393310575</span>
+            </a>
+            <a href="https://facebook.com/obertumanggor" target="_blank" rel="noopener">
+              <img src="fb.png" alt="Facebook">
+              <span>@MitsubishiSumutOber</span>
+            </a>
+            <a href="https://instagram.com/Mitsubishisumut.parna" target="_blank" rel="noopener">
+              <img src="insta.png" alt="Instagram">
+              <span>@MitsubishiSumutOber</span>
+            </a>
+            <a href="https://tiktok.com/@ober_tumanggor" target="_blank" rel="noopener">
+              <img src="tk.png" alt="TikTok">
+              <span>@obertumanggor</span>
+            </a>
+          </div>
+        </div>
+        </div>
+      </div>
+    </section>
+  </div>
+   <!-- Profil Marketing Card (Fixed) -->
+  <div id="profil" class="marketing-profile">
+    <div class="marketing-card">
+      <div class="profile-photo">
+        <img src="file.jpg" alt="Foto Marketing" width="80" height="80">
+      </div>
+      <div class="profile-info">
+        <div class="profile-name">Ober Tumanggor, S.Kom</div>
+        <div class="profile-visimisi">VISI-MISI</div>
+        <div class="profile-visimisi">MENJADI MARKETING TERBAIK NO 1 DI SUMUT</div>
+        <div class="profile-social">
+          <a href="https://wa.me/6282393310575" target="_blank" rel="noopener">
+            <img src="wa.png" alt="WhatsApp">
+            <span>082393310575</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>&copy; 2025 OBERMITSUBISHI SUMUT. All rights reserved.</footer>
+  <script src="v2.js"></script>
+</body>
+</html>

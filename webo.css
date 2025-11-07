@@ -1,0 +1,75 @@
+/* === Serah Terima Unit 3D Gallery === */
+.serahterima-section {
+  text-align: center;
+  padding: 40px 0;
+  background: linear-gradient(to right, #000000, #1a1a1a);
+  color: #fff;
+  perspective: 1000px;
+  margin-bottom: 40px;
+}
+.serahterima-section h2 {
+  font-size: 24px;
+  color: #ff3333;
+  margin-bottom: 20px;
+}
+.serahterima-slider {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+.serahterima-container {
+  display: flex;
+  transition: transform 1s ease;
+  transform-style: preserve-3d;
+}
+.serahterima-item {
+  flex: 0 0 100%;
+  backface-visibility: hidden;
+  transform: rotateY(0deg);
+}
+.serahterima-item img {
+  width: 300px;
+  height: 200px;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(255,255,255,0.2);
+  transition: transform 0.5s;
+}
+.serahterima-item img:hover {
+  transform: scale(1.05) rotateY(10deg);
+}
+.serahterima-caption {
+  margin-top: 10px;
+  font-size: 16px;
+  color: #ff3333;
+}
+.serahterima-prev, .serahterima-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.2);
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 24px;
+  border-radius: 50%;
+  z-index: 10;
+  transition: background 0.3s;
+}
+.serahterima-prev:hover, .serahterima-next:hover {
+  background: rgba(255,255,255,0.6);
+}
+.serahterima-prev { left: -50px; }
+.serahterima-next { right: -50px; }
+@media (max-width: 768px) {
+  .serahterima-item img {
+    width: 200px;
+    height: 140px;
+  }
+  .serahterima-prev, .serahterima-next {
+    left: 10px;
+    right: 10px;
+  }
+}

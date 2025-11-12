@@ -1,3 +1,55 @@
+/* ========== GALAXY CANVAS (BLUE STARS) - compatible iOS/Android/Desktop ========== */
+    (function(){
+      const canvas = document.getElementById('galaxy-bg');
+      const ctx = canvas.getContext('2d');
+      let W = window.innerWidth, H = window.innerHeight;
+      const stars = [];
+      function resize() { W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; }
+      window.addEventListener('resize', resize, {passive:true});
+      resize();
+
+      // create stars
+      const STAR_COUNT = Math.max(120, Math.floor((W*H)/8000)); // scale with screen
+      for (let i = 0; i < STAR_COUNT; i++) {
+        stars.push({
+          x: Math.random() * W,
+          y: Math.random() * H,
+          r: Math.random() * 1.4 + 0.2,
+          vx: (Math.random() - 0.5) * 0.15,
+          vy: (Math.random() - 0.5) * 0.15,
+          tw: Math.random() * Math.PI * 2
+        });
+      }
+
+      function draw() {
+        ctx.clearRect(0,0,W,H);
+        // subtle deep-blue gradient behind stars
+        const g = ctx.createLinearGradient(0,0,0,H);
+        g.addColorStop(0,'#00142a');
+        g.addColorStop(1,'#000814');
+        ctx.fillStyle = g;
+        ctx.fillRect(0,0,W,H);
+
+        for (let s of stars) {
+          s.x += s.vx;
+          s.y += s.vy;
+          s.tw += 0.02;
+          // wrap
+          if (s.x < 0) s.x = W;
+          if (s.x > W) s.x = 0;
+          if (s.y < 0) s.y = H;
+          if (s.y > H) s.y = 0;
+
+          const alpha = 0.5 + Math.sin(s.tw) * 0.5;
+          ctx.beginPath();
+          ctx.fillStyle = 'rgba(180,220,255,' + alpha.toFixed(2) + ')';
+          ctx.arc(s.x, s.y, s.r, 0, Math.PI*2);
+          ctx.fill();
+        }
+        requestAnimationFrame(draw);
+      }
+      draw();
+    })();
 // Fungsi untuk update tanggal dan jam digital
 function updateDateTime() {
     const now = new Date();
@@ -97,13 +149,22 @@ function updateDateTime() {
       message += "Skor: " + score + "\n";
       const encodedMessage = encodeURIComponent(message);
       const waUrl = "https://wa.me/6282393310575?text=" + encodedMessage;
-      setTimeout(function() {
-        window.open(waUrl, "_blank");
-      }, 1000);
-    } else {
+      setTimeout(() =>{ 
+         window.location.href = waUrl;
+    }, 1000);
+      }
+     else {
       resultDiv.textContent = "Maaf, jawabanmu kurang tepat. Coba lagi!";
     }
-  }
+     // setelah dikirim, kembalikan tampilan ke awal
+  setTimeout(() => {
+    document.getElementById('quizForm').reset();
+    document.getElementById('quizStart').style.display = 'block';
+    document.getElementById('quizContent').style.display = 'none';
+    resultDiv.textContent = "";
+  }, 1500);
+}
+  
   
   // Fungsi untuk form Tanya Marketing (dropdown)
   function submitContactForm(event) {
@@ -162,7 +223,60 @@ function updateDateTime() {
     const container = document.querySelector('.video-slider-container');
     container.scrollBy({ left: -container.clientWidth, behavior: 'smooth' });
   }
- // === Serah Terima 3D Gallery ===
+ // === Geser Manual Profil Marketing ===
+const profil = document.querySelector('.marketing-profile');
+let isDragging = false;
+let offsetX, offsetY;
+
+profil.addEventListener('mousedown', (e) => {
+  isDragging = true;
+  profil.classList.add('dragging');
+  offsetX = e.clientX - profil.offsetLeft;
+  offsetY = e.clientY - profil.offsetTop;
+});
+
+document.addEventListener('mousemove', (e) => {
+  if (isDragging) {
+    profil.style.left = `${e.clientX - offsetX}px`;
+    profil.style.top = `${e.clientY - offsetY}px`;
+    profil.style.bottom = 'auto'; // agar tidak terkunci di bawah
+    profil.style.right = 'auto';
+    profil.style.position = 'fixed';
+  }
+});
+
+document.addEventListener('mouseup', () => {
+  isDragging = false;
+  profil.classList.remove('dragging');
+});
+
+// === Untuk Sentuhan di HP ===
+profil.addEventListener('touchstart', (e) => {
+  isDragging = true;
+  profil.classList.add('dragging');
+  const touch = e.touches[0];
+  offsetX = touch.clientX - profil.offsetLeft;
+  offsetY = touch.clientY - profil.offsetTop;
+});
+
+document.addEventListener('touchmove', (e) => {
+  if (isDragging) {
+    const touch = e.touches[0];
+    profil.style.left = `${touch.clientX - offsetX}px`;
+    profil.style.top = `${touch.clientY - offsetY}px`;
+    profil.style.bottom = 'auto';
+    profil.style.right = 'auto';
+    profil.style.position = 'fixed';
+  }
+});
+
+document.addEventListener('touchend', () => {
+  isDragging = false;
+  profil.classList.remove('dragging');
+});
+
+ 
+  // === Serah Terima 3D Gallery ===
 document.addEventListener("DOMContentLoaded", () => {
   const serahContainer = document.querySelector('.serahterima-container');
   const serahItems = document.querySelectorAll('.serahterima-item');

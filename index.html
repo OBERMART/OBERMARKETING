@@ -9,6 +9,8 @@
   <link rel="stylesheet" href="v2.css">
 </head>
 <body>
+    <!-- GALAXY CANVAS -->
+  <canvas id="galaxy-bg" aria-hidden="true"></canvas>
   <div id="datetime"><span id="date"></span> <span id="time"></span></div>
   <header>
     <div class="header-content"><h1></h1></div>
@@ -78,6 +80,17 @@
       <h2>PRODUK</h2>
       <div class="products">
         <!-- Produk 1 -->
+      <div class="product-card">
+        <img src="destinator.PNG" alt="NEW DESTINATOR" width="300" height="200">
+        <div class="product-info">
+           <h3>NEW DESTINATOR</h3>
+           <p>Harga: Rp396.000.000-475.100.000</p>
+           <p>Kursi: 7</p>
+           <p>Transmisi : CVT Only</p>
+          <a href="javascript:void(0)" onclick="hubungiSelanjutnya('NEW DESTINATOR','Rp480.000.000-520.000.000','7')" class="btn-contact">Hubungi Selanjutnya</a>
+        </div>
+      </div>
+        <!-- Produk 2 -->
         <div class="product-card">
           <img src="pajerosport.jpg" alt="NEW PAJERO SPORT" width="300" height="200">
           <div class="product-info">
@@ -88,9 +101,9 @@
             <a href="javascript:void(0)" onclick="hubungiSelanjutnya('NEW PAJERO SPORT','Rp617.000.000-793.000.000','4')" class="btn-contact">Hubungi Selanjutnya</a>
           </div>
         </div>
-        <!-- Produk 2 -->
+        <!-- Produk 3 -->
         <div class="product-card">
-          <img src="xforce.jpg" alt="NEW MITSUBISHI XFORCE" width="300" height="200">
+          <img src="xforce.webp" alt="NEW MITSUBISHI XFORCE" width="300" height="200">
           <div class="product-info">
             <h3>NEW MITSUBISHI XFORCE</h3>
             <p>Harga: Rp396.900.000-438.700.000</p>
@@ -99,7 +112,7 @@
             <a href="javascript:void(0)" onclick="hubungiSelanjutnya('NEW MITSUBISHI XFORCE','Rp396.900.000-438.700.000','5')" class="btn-contact">Hubungi Selanjutnya</a>
           </div>
         </div>
-        <!-- Produk 3 -->
+        <!-- Produk 4 -->
         <div class="product-card">
           <img src="xpander.webp" alt="NEW XPANDER" width="300" height="200">
           <div class="product-info">
@@ -110,9 +123,9 @@
             <a href="javascript:void(0)" onclick="hubungiSelanjutnya('NEW XPANDER','Rp286.500.000-347.800.000','4')" class="btn-contact">Hubungi Selanjutnya</a>
           </div>
         </div>
-        <!-- Produk 4 -->
+        <!-- Produk 5 -->
         <div class="product-card">
-          <img src="xpander.jpg" alt="NEW XPANDER CROSS" width="300" height="200">
+          <img src="xpander cross.png" alt="NEW XPANDER CROSS" width="300" height="200">
           <div class="product-info">
             <h3>NEW XPANDER CROSS</h3>
             <p>Harga: Rp350.900.000-380.800.000</p>
@@ -121,7 +134,7 @@
             <a href="javascript:void(0)" onclick="hubungiSelanjutnya('NEW XPANDER CROSS','Rp350.900.000-380.800.000','4')" class="btn-contact">Hubungi Selanjutnya</a>
           </div>
         </div>
-        <!-- Produk 5 -->
+        <!-- Produk 6 -->
         <div class="product-card">
           <img src="triton.webp" alt="NEW ALL TRITON 2025" width="300" height="200">
           <div class="product-info">
@@ -132,7 +145,7 @@
             <a href="javascript:void(0)" onclick="hubungiSelanjutnya('NEW ALL TRITON 2025','Rp324.000.000-628.000.000','7')" class="btn-contact">Hubungi Selanjutnya</a>
           </div>
         </div>
-        <!-- Produk 6 -->
+        <!-- Produk 7 -->
         <div class="product-card">
           <img src="l300.webp" alt="NEW L300" width="300" height="200">
           <div class="product-info">
@@ -144,7 +157,7 @@
             <a href="javascript:void(0)" onclick="hubungiSelanjutnya('NEW L300','Rp261.500.000-267.000.000','5')" class="btn-contact">Hubungi Selanjutnya</a>
           </div>
         </div>
-        <!-- Produk 7 -->
+        <!-- Produk 8 -->
         <div class="product-card">
           <img src="canter.webp" alt="NEW CANTER" width="300" height="200">
           <div class="product-info">
@@ -156,7 +169,7 @@
             <a href="javascript:void(0)" onclick="hubungiSelanjutnya('NEW CANTER','Rp441.000.000-516.500.000','2')" class="btn-contact">Hubungi Selanjutnya</a>
           </div>
         </div>
-        <!-- Produk 8 -->
+        <!-- Produk 9 -->
         <div class="product-card">
           <img src="fuso.png" alt="NEW FUSO" width="300" height="200">
           <div class="product-info">
@@ -168,20 +181,7 @@
             <a href="javascript:void(0)" onclick="hubungiSelanjutnya('NEW FUSO','Rp995.000.000-1,4 miliar','2')" class="btn-contact">Hubungi Selanjutnya</a>
           </div>
         </div>
-      
-<!-- Produk 9 -->
-<div class="product-card">
-  <img src="destinator.PNG" alt="NEW DESTINATOR" width="300" height="200">
-  <div class="product-info">
-    <h3>NEW DESTINATOR</h3>
-    <p>Harga: Rp396.000.000-475.100.000</p>
-    <p>Kursi: 7</p>
-    <p>Transmisi : CVT Only</p>
-    <a href="javascript:void(0)" onclick="hubungiSelanjutnya('NEW DESTINATOR','Rp480.000.000-520.000.000','7')" class="btn-contact">Hubungi Selanjutnya</a>
-  </div>
-</div>
-
-</div>
+      </div>
     </section>
     
     <!-- Video Slider Section -->
@@ -190,7 +190,7 @@
       <div class="video-slider-container">
         <div class="video-card">
           <video controls poster="video1_poster.jpg">
-            <source src="video_1.mp4" type="video/mp4">
+            <source src="video1.mp4" type="video/mp4">
             <track kind="subtitles" srclang="id" label="Bahasa Indonesia" src="video1_subtitles.vtt" default>
             Browser Anda tidak mendukung elemen video.
           </video>
@@ -256,7 +256,7 @@
           <div class="quiz-question"><p>4. Apa arti dari 'kredit' dalam pembelian mobil?</p>
             <label><input type="radio" name="q4" value="Pembayaran secara cicilan"> Pembayaran secara cicilan</label>
             <label><input type="radio" name="q4" value="Pembayaran penuh"> Pembayaran penuh</label>
-            <label><input type="radio" name="q4" value="GRIS"> GRIS</label>
+            <label><input type="radio" name="q4" value="GRIS"> QRIS</label>
           </div>
           <div class="quiz-question"><p>5. Mobil keluarga dari mitsubishi yang bisa stututu....tut model apa?</p>
             <label><input type="radio" name="q5" value="New Pajero Sport"> New Pajero Sport</label>

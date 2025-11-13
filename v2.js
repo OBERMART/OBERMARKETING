@@ -223,98 +223,165 @@ function updateDateTime() {
     const container = document.querySelector('.video-slider-container');
     container.scrollBy({ left: -container.clientWidth, behavior: 'smooth' });
   }
- // === Geser Manual Profil Marketing ===
-const profil = document.querySelector('.marketing-profile');
-let isDragging = false;
-let offsetX, offsetY;
+ // === Geser Profil Marketing (Drag + Anti Scroll + Simpan Posisi Otomatis) ===
+const profil = document.getElementById('profil');
+let offsetX = 0, offsetY = 0, isDragging = false;
 
+// === Fungsi untuk Simpan dan Ambil Posisi dari LocalStorage ===
+function saveProfilPosition(x, y) {
+  localStorage.setItem('profilPosition', JSON.stringify({ x, y }));
+}
+
+function loadProfilPosition() {
+  const saved = localStorage.getItem('profilPosition');
+  if (saved) {
+    const { x, y } = JSON.parse(saved);
+    profil.style.left = `${x}px`;
+    profil.style.top = `${y}px`;
+    profil.style.bottom = 'auto';
+    profil.style.right = 'auto';
+  }
+}
+
+// === Jalankan saat halaman pertama kali dibuka ===
+window.addEventListener('load', loadProfilPosition);
+
+// === EVENT MOUSE ===
 profil.addEventListener('mousedown', (e) => {
   isDragging = true;
   profil.classList.add('dragging');
-  offsetX = e.clientX - profil.offsetLeft;
-  offsetY = e.clientY - profil.offsetTop;
+  offsetX = e.clientX - profil.getBoundingClientRect().left;
+  offsetY = e.clientY - profil.getBoundingClientRect().top;
+  document.body.style.userSelect = "none";
+  document.body.style.overflow = "hidden";
 });
 
 document.addEventListener('mousemove', (e) => {
-  if (isDragging) {
-    profil.style.left = `${e.clientX - offsetX}px`;
-    profil.style.top = `${e.clientY - offsetY}px`;
-    profil.style.bottom = 'auto'; // agar tidak terkunci di bawah
-    profil.style.right = 'auto';
-    profil.style.position = 'fixed';
-  }
+  if (!isDragging) return;
+  const x = e.clientX - offsetX;
+  const y = e.clientY - offsetY;
+  profil.style.left = `${x}px`;
+  profil.style.top = `${y}px`;
+  profil.style.bottom = 'auto';
+  profil.style.right = 'auto';
 });
 
-document.addEventListener('mouseup', () => {
+document.addEventListener('mouseup', (e) => {
+  if (!isDragging) return;
   isDragging = false;
   profil.classList.remove('dragging');
+  document.body.style.userSelect = "";
+  document.body.style.overflow = "";
+  // Simpan posisi terakhir
+  saveProfilPosition(profil.offsetLeft, profil.offsetTop);
 });
 
-// === Untuk Sentuhan di HP ===
+// === EVENT TOUCH (HP/iOS/Android) ===
 profil.addEventListener('touchstart', (e) => {
+  const touch = e.touches[0];
   isDragging = true;
   profil.classList.add('dragging');
-  const touch = e.touches[0];
-  offsetX = touch.clientX - profil.offsetLeft;
-  offsetY = touch.clientY - profil.offsetTop;
-});
+  offsetX = touch.clientX - profil.getBoundingClientRect().left;
+  offsetY = touch.clientY - profil.getBoundingClientRect().top;
+  document.body.style.overflow = "hidden";
+}, { passive: false });
 
 document.addEventListener('touchmove', (e) => {
-  if (isDragging) {
-    const touch = e.touches[0];
-    profil.style.left = `${touch.clientX - offsetX}px`;
-    profil.style.top = `${touch.clientY - offsetY}px`;
-    profil.style.bottom = 'auto';
-    profil.style.right = 'auto';
-    profil.style.position = 'fixed';
-  }
-});
+  if (!isDragging) return;
+  const touch = e.touches[0];
+  const x = touch.clientX - offsetX;
+  const y = touch.clientY - offsetY;
+  profil.style.left = `${x}px`;
+  profil.style.top = `${y}px`;
+  profil.style.bottom = 'auto';
+  profil.style.right = 'auto';
+  e.preventDefault();
+}, { passive: false });
 
 document.addEventListener('touchend', () => {
+  if (!isDragging) return;
   isDragging = false;
   profil.classList.remove('dragging');
+  document.body.style.overflow = "";
+  // Simpan posisi terakhir juga untuk HP
+  saveProfilPosition(profil.offsetLeft, profil.offsetTop);
 });
 
- 
-  // === Serah Terima 3D Gallery ===
-document.addEventListener("DOMContentLoaded", () => {
-  const serahContainer = document.querySelector('.serahterima-container');
-  const serahItems = document.querySelectorAll('.serahterima-item');
-  const totalSerah = serahItems.length;
-  let serahIndex = 0;
+// === Carousel Serah Terima 3D 5-Card View ===
+let serahIndex = 0;
+const serahCards = document.querySelectorAll('.carousel-item');
+let serahTimer;
 
-  function showSerahTerima() {
-    serahContainer.style.transform = `translateX(-${serahIndex * 100}%)`;
-  }
+function updateSerahCarousel() {
+  serahCards.forEach((card, i) => {
+    card.className = 'carousel-item'; // reset class
+    const diff = (i - serahIndex + serahCards.length) % serahCards.length;
 
-  function nextSerahTerima() {
-    serahIndex = (serahIndex + 1) % totalSerah;
-    showSerahTerima();
-  }
+    if (diff === 0) card.classList.add('active');
+    else if (diff === 1) card.classList.add('right1');
+    else if (diff === 2) card.classList.add('right2');
+    else if (diff === serahCards.length - 1) card.classList.add('left1');
+    else if (diff === serahCards.length - 2) card.classList.add('left2');
+  });
+}
 
-  function prevSerahTerima() {
-    serahIndex = (serahIndex - 1 + totalSerah) % totalSerah;
-    showSerahTerima();
-  }
+function nextSerahTerima() {
+  serahIndex = (serahIndex + 1) % serahCards.length;
+  updateSerahCarousel();
+}
 
-  // tombol manual
-  document.querySelector('.serahterima-next')?.addEventListener('click', nextSerahTerima);
-  document.querySelector('.serahterima-prev')?.addEventListener('click', prevSerahTerima);
+function prevSerahTerima() {
+  serahIndex = (serahIndex - 1 + serahCards.length) % serahCards.length;
+  updateSerahCarousel();
+}
 
-  // otomatis setiap 3 detik
-  setInterval(nextSerahTerima, 3000);
+function startSerahAuto() {
+  clearInterval(serahTimer);
+  serahTimer = setInterval(nextSerahTerima, 3000);
+}
 
-  // geser manual via sentuhan (swipe di HP)
-  const slider = document.querySelector('.serahterima-slider');
-  let startX = 0;
+// === Swipe (Sentuhan HP) ===
+let startX = 0, isSwiping = false;
+const serahTrack = document.querySelector('.carousel-track');
 
-  slider.addEventListener('touchstart', e => {
+if (serahTrack) {
+  serahTrack.addEventListener('touchstart', (e) => {
     startX = e.touches[0].clientX;
+    isSwiping = true;
+    clearInterval(serahTimer);
   }, { passive: true });
 
-  slider.addEventListener('touchend', e => {
-    const endX = e.changedTouches[0].clientX;
-    if (startX - endX > 50) nextSerahTerima();
-    else if (endX - startX > 50) prevSerahTerima();
+  serahTrack.addEventListener('touchmove', (e) => {
+    if (!isSwiping) return;
+    const x = e.touches[0].clientX;
+    const diff = startX - x;
+    if (Math.abs(diff) > 50) {
+      diff > 0 ? nextSerahTerima() : prevSerahTerima();
+      isSwiping = false;
+      startSerahAuto();
+    }
   }, { passive: true });
+
+  serahTrack.addEventListener('touchend', () => isSwiping = false);
+}
+
+window.addEventListener('load', () => {
+  updateSerahCarousel();
+  startSerahAuto();
 });
+// === COUNTER LOKAL PENGUNJUNG WEBSITE ===
+(function(){
+  const counterElement = document.getElementById('visitorCount');
+  if (!counterElement) return;
+
+  // Ambil jumlah pengunjung dari localStorage
+  let count = localStorage.getItem('visitorCount');
+  if (!count) count = 0;
+  count = parseInt(count) + 1;
+
+  // Simpan kembali ke localStorage
+  localStorage.setItem('visitorCount', count);
+
+  // Tampilkan ke layar
+  counterElement.textContent = count.toLocaleString('id-ID');
+})();

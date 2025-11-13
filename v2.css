@@ -59,7 +59,7 @@
     align-items: center;
   }
   header h1 {
-    font-size: 30px;
+    font-size: 25px;
     margin: 0;
     text-shadow: 1px 1px 5px rgba(245,243,243,0.5);
   }
@@ -81,8 +81,9 @@
     position: relative;
   }
   nav ul li a {
-    color: #fff;
+    color: #ffffff;
     font-family: Arial;
+    font-size: 12px;
     padding: 5px 8px;
     display: block;
   }
@@ -104,12 +105,7 @@
     z-index: 2000;
     transition: all 0.3s ease;
   }
-  function tampilkanForm {
-  const form = document.getElementById('contactForm');
-  form.style.display = "block";
-  form.style.opacity = "1";
-  form.style.transform = "translateY(0)";
-}
+
   nav ul li.dropdown:hover .dropdown-content,
   nav ul li.dropdown:focus-within .dropdown-content {
     display: block;
@@ -228,7 +224,7 @@
     padding-bottom: 10px;
   }
   .product-card {
-    background: linear-gradient(45deg, #0a0a0a, #0c0c0c, #ccc, #f8f3f3);
+    background: linear-gradient(45deg, #f80707, #000000, #ccc, #f8f3f3);
     min-width: 300px;
     border-radius: 10px;
     height: 500px;
@@ -377,7 +373,244 @@
     margin: 20px 0;
     color: #fff;
   }
-     /* Marketing Executive Section */
+    
+/* === 3D 5-Card Carousel Style === */
+.serahterima-section {
+  position: relative;
+  text-align: center;
+  padding-top: 180px;
+  overflow: hidden;
+  color: #ffffff;
+}
+
+.serahterima-section h2 {
+  position: absolute;
+  top: 0px;
+  background-color: #f9fbff;
+  text-align: center;
+  left: 41%;
+  font-size: 20px;
+  z-index: 50;
+  color: #ff3333;
+  pointer-events: none;
+  text-shadow: 0 0 10px #ff0000;
+
+}
+
+.carousel-container {
+  position: relative;
+  width: 10%;
+  height: 180px;
+  max-width: 1000px;
+  margin: 0 auto;
+  perspective: 1500px;
+}
+
+.carousel-track {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  transition: transform 0.8s ease;
+}
+
+.carousel-item {
+  position: absolute;
+  width: 220px;
+  height: 300px;
+  margin-bottom: 8%;
+  opacity: 0;
+  transform: scale(0.6) translateX(0) rotateY(0);
+  transition: all 0.8s ease;
+  filter: blur(2px);
+}
+
+.carousel-item img {
+  width: 200px;
+  height: 250px;
+  border-radius: 18px;
+  object-fit: cover;
+  box-shadow: 0 8px 25px rgba(255, 255, 255, 0.2);
+}
+
+.carousel-item .caption {
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  color: #fff;
+  text-shadow: 1px 1px 3px #d60b0b;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.carousel-item.active {
+  opacity: 1;
+  transform: scale(1) translateX(0) rotateY(0);
+   box-shadow: 0 0 28px 10px rgba(240, 47, 47, 0.7),
+              0 0 60px 20px rgba(250, 227, 227, 0.4);
+  border: 2px solid rgba(255, 0, 0, 0.8);
+  filter: blur(0);
+  z-index: 5;
+}
+
+.carousel-item.left1 {
+  opacity: 0.9;
+  transform: scale(0.8) translateX(-250px) rotateY(20deg);
+  z-index: 4;
+}
+
+.carousel-item.right1 {
+  opacity: 0.9;
+  transform: scale(0.8) translateX(250px) rotateY(-20deg);
+  z-index: 4;
+}
+
+.carousel-item.left2 {
+  opacity: 0.6;
+  transform: scale(0.6) translateX(-480px) rotateY(30deg);
+  z-index: 3;
+}
+
+.carousel-item.right2 {
+  opacity: 0.6;
+  transform: scale(0.6) translateX(480px) rotateY(-30deg);
+  z-index: 3;
+}
+
+.serah-prev, .serah-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.1);
+  border: 2px solid red;
+  color: white;
+  font-size: 22px;
+  padding: 8px 14px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.3s;
+  z-index: 10;
+}
+
+.serah-prev:hover, .serah-next:hover {
+  background: red;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.serah-prev { left: -100px; }
+.serah-next { right: -100px; }
+
+@media (max-width: 768px) {
+  .carousel-item {
+    width: 160px;
+    height: 220px;
+  }
+  .serahterima-section {
+  position: relative;
+  text-align: center;
+  padding-top: 200px;
+  overflow: hidden;
+  color: #ffffff;
+}
+
+.serahterima-section h2 {
+  position: absolute;
+  background-color: #f9fbff;
+  text-align: center;
+  left: 26%;
+  font-size: 20px;
+  z-index: 10;
+  color: #ff3333;
+  pointer-events: none;
+  text-shadow: 0 0 10px #ff0000;
+
+}
+
+.carousel-container {
+  position: relative;
+  width: 10%;
+  height: 180px;
+  max-width: 1000px;
+  margin: 0 auto;
+  perspective: 1500px;
+}
+
+.carousel-track {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  transition: transform 0.8s ease;
+}
+
+.carousel-item {
+  position: absolute;
+  width: 220px;
+  height: 300px;
+  margin-bottom: 8%;
+  opacity: 0;
+  transform: scale(0.6) translateX(0) rotateY(0);
+  transition: all 0.8s ease;
+  filter: blur(2px);
+}
+
+.carousel-item img {
+  width: 180px;
+  height: 178px;
+  border-radius: 15px;
+  object-fit: cover;
+  box-shadow: 0 8px 25px rgba(255, 255, 255, 0.2);
+}
+
+.carousel-item .caption {
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+  color: #fff;
+  text-shadow: 1px 1px 3px #d60b0b;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+  .carousel-item.left1 { transform: scale(0.8) translateX(-180px) rotateY(15deg); }
+  .carousel-item.right1 { transform: scale(0.8) translateX(180px) rotateY(-15deg); }
+  .carousel-item.left2 { transform: scale(0.6) translateX(-320px) rotateY(25deg); }
+  .carousel-item.right2 { transform: scale(0.6) translateX(320px) rotateY(-25deg); }
+}
+/* ====== FOOTER (dengan Jumlah Pengunjung) ====== */
+.footer {
+  position: relative;
+  background: rgba(0,0,0,0.8);
+  color: white;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  border-top: 2px solid red;
+  flex-wrap: wrap;
+}
+
+.visitor-counter {
+  font-weight: bold;
+  color: #00ffea;
+  text-shadow: 0 0 10px rgba(0,255,255,0.6);
+}
+
+.footer-text {
+  color: #aaa;
+  font-size: 13px;
+}
+
+@media (max-width: 768px) {
+  .footer {
+    flex-direction: column;
+    text-align: center;
+    gap: 6px;
+  }
+}
+
+   /* Marketing Executive Section */
   .marketing-executive-section {
     background: linear-gradient(135deg, #111111, #f10f0f, #2563eb);
     background-size: 200% 200%;
@@ -525,13 +758,20 @@
       height: 120px;
     }
     nav ul li {
-      font-size: 10px;
+      font-size: 7px;
       font-weight: bold;
       position: relative;
     }
     header h1 {
       font-size: 14px;
     }
+    nav ul li a {
+    color: #ffffff;
+    font-family: Arial;
+    font-size: 9px;
+    padding: 5px 8px;
+    display: block;
+  }
     nav ul {
       flex-direction: column;
       gap: 10px;
@@ -556,15 +796,15 @@
       width: 100px;
       background-color: #0c0c0c;
       box-shadow: 50px;
-      height: 300px;
+      height: 330px;
       padding: 5px;
       max-width: 10%;
     }
     .product-card img {
-      display: block;
+      object-fit: cover;
       width: 100%;
       padding-bottom: 10px;
-      height: 130px;
+      height: 160px;
     }
     .product-info h3 {
       font-size: 10px;
@@ -615,7 +855,7 @@
       object-fit: cover;
     }
     .marketing-profile .profile-name  {
-      font-size: 7px;
+      font-size: 5px;
     }
     .marketing-profile .profile-visimisi {
       font-size: 7px;
@@ -628,78 +868,3 @@
       height: 10px;
     }
   }
-  
-/* === Serah Terima Unit 3D Gallery === */
-.serahterima-section {
-  text-align: center;
-  padding: 40px 0;
-  color: #fff;
-  perspective: 1000px;
-  margin-bottom: 40px;
-}
-.serahterima-section h2 {
-  font-size: 24px;
-  color: #ff3333;
-  margin-bottom: 20px;
-}
-.serahterima-slider {
-  position: relative;
-  overflow: hidden;
-  width: 100%;
-  max-width: 600px;
-  margin: 0 auto;
-}
-.serahterima-container {
-  display: flex;
-  transition: transform 1s ease;
-  transform-style: preserve-3d;
-}
-.serahterima-item {
-  flex: 0 0 100%;
-  backface-visibility: hidden;
-  transform: rotateY(0deg);
-}
-.serahterima-item img {
-  width: 300px;
-  height: 200px;
-  border-radius: 15px;
-  box-shadow: 0 8px 25px rgba(255,255,255,0.2);
-  transition: transform 0.5s;
-}
-.serahterima-item img:hover {
-  transform: scale(1.05) rotateY(10deg);
-}
-.serahterima-caption {
-  margin-top: 10px;
-  font-size: 16px;
-  color: #ff3333;
-}
-.serahterima-prev, .serahterima-next {
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(168, 29, 29, 0.2);
-  color: #fff;
-  border: none;
-  padding: 10px 15px;
-  cursor: pointer;
-  font-size: 24px;
-  border-radius: 50%;
-  z-index: 10;
-  transition: background 0.3s;
-}
-.serahterima-prev:hover, .serahterima-next:hover {
-  background: rgba(255,255,255,0.6);
-}
-.serahterima-prev { left: -50px; }
-.serahterima-next { right: -50px; }
-@media (max-width: 768px) {
-  .serahterima-item img {
-    width: 200px;
-    height: 140px;
-  }
-  .serahterima-prev, .serahterima-next {
-    left: 10px;
-    right: 10px;
-  }
-}
-
